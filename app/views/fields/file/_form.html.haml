@@ -1,0 +1,10 @@
+= f.label field.attribute
+- file = f.object.send(field.attribute)
+- if file.present?
+  %br
+  = image_tag "file-image.png", width: 75, height: 100
+  %br
+  = file.try(:original_filename) || field.data
+  %br
+= f.file_field field.attribute
+%br

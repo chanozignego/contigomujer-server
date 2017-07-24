@@ -10,7 +10,7 @@ class LawDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     title: Field::String,
-    file: Field::String
+    file: Field::File
   }
 
   # COLLECTION_ATTRIBUTES
