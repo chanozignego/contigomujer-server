@@ -13,7 +13,8 @@ class DashboardManifest
     :admin_users,
     :towns,
     :infos,
-    :laws
+    :laws,
+    :users
   ]
 
   # `ROOT_DASHBOARD`

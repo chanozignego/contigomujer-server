@@ -1,0 +1,19 @@
+es-AR:
+  activerecord:
+    attributes:
+      user:
+        created_at: Fecha de creación
+        updated_at: Ultima actualización
+        name: Nombre
+        email: Email
+        phone: Teléfono
+        password: Contraseña
+        height: Peso
+        age: Edad
+        address: Dirección
+        town: Municipio
+        town_id: Municipio
+    models:
+      user:
+        one: Usuario
+        other: Usuarios
