@@ -10,7 +10,19 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require bootstrap
+//= require underscore
+//= require select2.full
+//= require bootstrap-notify
+//= require i18n
+//= require i18n/translations
+//= require moment-with-locales
+//= require bootstrap-datetimepicker
+//= require js-routes
+//= require cocoon
+//= require shared/app
+//= require initializers/bootstrap_notify
+//= require shared/common

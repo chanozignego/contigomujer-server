@@ -1,0 +1,16 @@
+= link_to(                                      |
+                t("administrate.actions.show"),             |
+                [Administrate::NAMESPACE, resource], |
+                class: "action-show",                       |
+              ) + " " + link_to(                                      |
+                t("administrate.actions.edit"),             |
+                [:edit, Administrate::NAMESPACE, resource], |
+                class: "action-edit",                       |
+              )                                             |
+          + " " + link_to(                                              |
+                t("administrate.actions.destroy"),                   |
+                [Administrate::NAMESPACE, resource],                 |
+                class: "table__action--destroy",                     |
+                method: :delete,                                     |
+                data: { confirm: t("administrate.actions.confirm") } |
+              )                                                      |

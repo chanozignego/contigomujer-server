@@ -1,0 +1,15 @@
+-if page.respond_to?(:resource) && page.resource.persisted?
+  = link_to([:edit, Administrate::NAMESPACE, page.resource], class: "btn btn-primary admin-header-buttons__item") do
+    %span
+      = I18n.t("administrate.actions.edit_entity", entity: object_class(page.resource).try(:model_name).try(:human))
+    %i.fa.fa-pencil.ml5
+
+  = link_to([Administrate::NAMESPACE, page.resource],class: "btn btn-danger ml10 admin-header-buttons__item",method: :delete, data: { confirm: t("administrate.actions.confirm") }) do
+    %span
+      = t("administrate.actions.destroy")
+    %i.fa.fa-trash.ml5
+- else
+  = link_to( [:new, Administrate::NAMESPACE, page.resource_name], class: "btn btn-primary admin-header-buttons__item") do
+    %span
+      = I18n.t("administrate.actions.new_entity", entity: page.resource_name.camelize.constantize.model_name.human)
+    %i.fa.fa-plus.ml5

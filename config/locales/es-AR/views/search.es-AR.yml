@@ -1,0 +1,8 @@
+es-AR:
+  views:
+    search:
+      filter: Buscar
+      clear: Limpiar
+      gteq: Mayor o igual
+      lteq: Menor o igual
+      contains: Contiene

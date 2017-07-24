@@ -1,0 +1,9 @@
+-klass = klass.presence || object_class(resource)
+-Array(attributes).each do |attribute|
+  .row.admin-detail-row
+    .col-xs-3
+      %span.bold
+        = klass.human_attribute_name(attribute)
+    .col-xs-9          
+      %span
+        = resource.send(attribute)

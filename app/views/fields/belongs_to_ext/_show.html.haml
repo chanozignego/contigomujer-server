@@ -1,0 +1,5 @@
+- if field.data
+  = link_to(                             |
+      field.member_resource_path(field.data.id), |
+      [Administrate::NAMESPACE, field.data],           |
+    )                                    |

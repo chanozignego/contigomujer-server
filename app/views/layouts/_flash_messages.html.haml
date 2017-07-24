@@ -1,0 +1,3 @@
+-[:notice, :error, :alert].each do |message|
+  -if flash[message].present?
+    .js-flash-message{data: { type: message, message: flash[message], flash: notify_type_for_flash(message) } }

@@ -1,0 +1,10 @@
+.dropdown
+  =link_to "#", class: "dropdown-toggle btn btn-default", data: {toggle: :dropdown}, "aria-expanded" => false do
+    =I18n.t("mass_assignment.label")
+    %span.caret.ml5
+  %ul.dropdown-menu
+    - current_dashboard.batch_actions.each_with_index do |(action, data), index|
+      %li
+        =link_to I18n.t("mass_assignment.actions.#{action}"), "javascript:void(true)", class: "js-mass-action-link", data: {action: action, method: :put, confirm: data[:confirm], target: data[:target], search: search_attributes.to_json, submit_to: data[:submit_to].presence || Rails.application.routes.url_helpers.send("admin_#{controller_name}_mass_assignment_path"), submit_type: data[:submit_type].presence || "post" }
+      - unless (current_dashboard.batch_actions.length - 1) == index
+        %li.divider

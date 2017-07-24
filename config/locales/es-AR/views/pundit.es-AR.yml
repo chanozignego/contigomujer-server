@@ -1,0 +1,6 @@
+es-AR:
+  pundit:
+    default: No tiene los permisos necesarios para acceder a esa página
+    admin_user_policy:
+      index?: "No puede ver el listado de administradores"
+      new?: "No puede agregar administradores"

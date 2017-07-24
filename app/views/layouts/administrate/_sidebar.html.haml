@@ -1,0 +1,13 @@
+.navbar-default.sidebar{:role => "navigation"}
+  .sidebar-nav.navbar-collapse
+    %ul#side-menu.nav
+      %li
+        =link_to admin_root_path, class: active_sidebar(:home) do
+          %i.fa.fa-dashboard.fa-fw
+          Dashboard
+
+      - DashboardManifest::DASHBOARDS.drop(1).each do |resource|
+        %li
+          = link_to [:admin, resource], class: "sidebar__link sidebar__link--#{nav_link_state(resource)}" do
+            %i.fa.fa-table.fa-fw
+            = display_resource_name(resource)

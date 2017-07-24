@@ -1,0 +1,238 @@
+// admin/common.scss
+// Common styles for admin panel
+
+// Variables
+
+$admin-background: #f8f8f8;
+$admin-border: #e7e7e7;
+$admin-accent: #eee;
+$admin-navbar-width: 180px;
+
+// Admin sidebar - add buttons
+
+.sidebar .sidebar-nav .sidebar__link-add{
+  display: inline-block;
+  padding: 0;
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  right: 5px;
+}
+
+
+
+// Page wrapper reset styles
+#page-wrapper {
+  overflow: hidden;
+  padding: 0 15px;
+}
+
+#page-wrapper > .row{
+  padding-left: 30px;
+  padding-right: 30px;
+
+  @media (max-width: 768px){
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (min-width: 768px){
+  // Config the admin left nav bar width
+  .sidebar{ width: $admin-navbar-width; }
+  #page-wrapper{ margin-left: $admin-navbar-width; }
+}
+
+// Header
+
+.admin-header__container{
+  background-color: $admin-background;
+  border-bottom: 1px solid $admin-border;
+  margin-bottom: 30px;
+}
+
+.admin-header{
+  position: relative;
+  height: 81px;
+}
+
+.admin-header__title{
+  font-size: 2em; //32px
+  margin: 5px 0 0 0;
+}
+
+.admin-header__breadcrumb{
+  font-size: 0.75em; //12px
+  text-transform: uppercase;
+  color: darken(white, 35%);
+  margin: 0;
+}
+
+.admin-header-buttons{
+  float: right;
+  right: 15px; //Bootstrap columns padding
+}
+
+.admin-header-buttons__item{
+  display: inline-block;
+  margin-left: 15px;
+}
+
+// Items not found
+
+.items-not-found{
+  text-align: center;
+  color: $admin-border;
+  margin-top: 80px;
+}
+
+.items-not-found__icon{
+  font-size: 90px;
+}
+
+.items-not-found__text{
+  font-size: 24px;
+  margin-top: 20px
+}
+
+// Common panel
+
+.admin-common-panel{
+  background-color: $admin-background;
+  border: 1px solid $admin-border;
+  border-radius: 5px;
+}
+
+.admin-common-panel__header{
+  background-color: $admin-accent;
+  border-bottom: 1px solid $admin-border;
+  font-size: 0.88em; //14px
+  margin: 0;
+}
+
+.admin-common-panel__content{
+  margin: 20px 0;
+}
+
+.admin-common-panel__image-preview {
+  display: inline-block;
+  margin: 10px 0;
+}
+
+.module-container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.admin-detail-module-image {
+  padding: 10px;
+}
+
+// Details
+
+.admin-detail-row{
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.texture-image-preview{
+  max-width: 400px;
+}
+
+.cell-data__checkbox-column{
+  width: 40px;
+}
+
+.form-actions{
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+.table__actions-section{
+  a{
+    text-decoration: underline;
+    color: #23527c;
+
+    &:hover{ color: darken( #23527c, 10%); }
+  }
+}
+
+.table__actions-section.items {
+  min-height: 300px;
+}
+
+.table__actions-section.items
+
+.form-group abbr[title = "required"]{
+  cursor: default;
+  border-bottom: 0;
+}
+
+// Overwrite default select2 styles
+// for image selects
+
+.select2-auto-height{
+  .select2-selection{
+    height: auto !important;
+    padding: 2px 0 !important;
+  }
+  .select2-selection__arrow{
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+}
+
+// select2 overwrite of height
+.select2-container .select2-selection--single{
+  height: 34px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+  line-height: 34px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+  height: 34px;
+}
+
+.select2-container{
+  width: 100% !important;
+}
+
+// Text Angular editor
+.ta-editor {
+  min-height: 300px;
+  height: auto;
+  overflow: auto;
+  font-family: inherit;
+  font-size: 100%;
+  margin-top: 15px;
+}
+
+// Tables, order properties
+
+.table-head-cell{
+  position: relative;
+  vertical-align: middle !important;
+
+  &.sort{
+    background-color: darken(white, 10%);
+  }
+
+  .table-head-cell__order-icon{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 5px 10px;
+    cursor: pointer;
+    cursor: pointer;
+  }
+}
+.remember{
+  margin: 2px!important;
+  width: 15px;
+  height: 15px;
+}

@@ -1,0 +1,26 @@
+/ Navigation
+%nav.navbar.navbar-default.navbar-static-top{:role => "navigation", :style => "margin-bottom: 0"}
+  .navbar-header
+    %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    =link_to "Backoffice", admin_root_path, class: "navbar-brand"
+  %ul.nav.navbar-top-links.navbar-right
+    %li.dropdown
+      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+        %i.fa.fa-user.fa-fw
+        = current_admin_user.try(:full_name)
+        %i.fa.fa-caret-down
+      %ul.dropdown-menu.dropdown-user
+        %li
+          %a{:href => admin_admin_user_change_password_path(current_admin_user.id)}
+            %i.fa.fa-gear.fa-fw
+            Contraseña
+        %li.divider
+        %li
+          = link_to destroy_admin_user_session_path, method: :delete do
+            %i.fa.fa-sign-out.fa-fw
+            Logout
+  = render partial: "layouts/administrate/sidebar"

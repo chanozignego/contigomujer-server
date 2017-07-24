@@ -1,0 +1,30 @@
+es-AR:
+  administrate:
+    controller:
+      create:
+        success: Registro creado satisfactoriamente
+      destroy:
+        success: Registro eliminado satisfactoriamente
+        error: No pudo eliminarse el registro
+      update:
+        success: Registro actualizado satisfactoriamente
+    actions:
+      destroy: Eliminar
+      edit: Editar
+      show: Ver
+      confirm: ¿Está Seguro?
+      add_entity: "Agregar %{entity}"
+      update_entity: "Actualizar %{entity}"
+      remove_entity: "Eliminar %{entity}"
+      create_entity: "Crear %{entity}"
+      new_entity: "Agregar %{entity}"
+      edit_entity: "Editar %{entity}"
+      show_entity: "Ver %{entity}"
+      new_entity_breadcrumb: "Agregar %{entity}"
+      edit_entity_breadcrumb: "Editar %{entity}"
+      show_entity_breadcrumb: "Ver %{entity}"
+      back: Volver
+      update_entity: "Actualizar %{entity}"
+      search: Buscar
+      cancel: Cancelar
+      change_password: Cambiar contraseña

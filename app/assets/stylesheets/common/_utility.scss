@@ -1,0 +1,265 @@
+// utility.scss
+
+// Utility/helper classes
+
+// Responsivize mixin
+// Generate responsive classes
+
+@mixin responsivize($class) {
+  #{$class} {
+    @content;
+  }
+  @media (max-width: 767px) {
+    #{$class}-xs {
+      @content;
+    }
+  }
+  @media (min-width: 768px) {
+    #{$class}-sm {
+      @content;
+    }
+  }
+  @media (min-width: 992px) {
+    #{$class}-md {
+      @content;
+    }
+  }
+  @media (min-width: 1200px) {
+    #{$class}-lg {
+      @content;
+    }
+  }
+}
+
+// Media queries
+
+$xs-screen: "only screen and (max-width : 767px)";
+$sm-screen: "only screen and (min-width : 767px)";
+$md-screen: "only screen and (min-width : 991px)";
+$lg-screen: "only screen and (min-width : 1200px)";
+
+$max-sm-screen: "only screen and (max-width : 767px)";
+$max-md-screen: "only screen and (max-width : 991px)";
+$max-lg-screen: "only screen and (max-width : 1200px)";
+
+.center-vertical {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.center{
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.left-0 {
+  left: 0 !important;
+}
+
+.right-0 {
+  right: 0 !important;
+}
+
+.left-15 {
+  left: 15px !important;
+}
+
+.right-15 {
+  right: 15px !important;
+}
+
+.left-30{
+  left: 30px !important;
+}
+
+.right-30{
+  right: 30px !important;
+}
+
+.overflow-hidden{ overflow: hidden !important; }
+
+//Position
+
+.position-absolute {
+  position: absolute !important;
+}
+
+.position-relative {
+  position: relative !important;
+}
+
+.display-flex {
+  display: flex !important;
+}
+
+.display-inline-block{
+  display: inline-block !important;
+}
+
+// Margins
+
+// Create class for margin-top and margin-bottom
+// .mt10, .mt20, .mt30, .mt40, .mt50
+// .mb10, .mb20, .mb30, .mb40, .mb50
+
+@for $i from 0 through 10 {
+  .mt#{$i * 10} {
+    margin-top: 1px * $i * 10 !important;
+  }
+  .mb#{$i * 10} {
+    margin-bottom: 1px * $i * 10 !important;
+  }
+}
+
+@for $i from 0 through 5 {
+  .ml#{$i * 10} {
+    margin-left: 1px * $i * 10 !important;
+  }
+  .mr#{$i * 10} {
+    margin-right: 1px * $i * 10 !important;
+  }
+}
+
+// Paddings
+
+@for $i from 0 through 10 {
+  .pt#{$i * 10} {
+    padding-top: 1px * $i * 10 !important;
+  }
+  .pb#{$i * 10} {
+    padding-bottom: 1px * $i * 10 !important;
+  }
+}
+.pl0{ padding-left: 0;}
+.pr0{padding-right: 0;}
+.pl30{ padding-left: 30px !important; }
+.pr30{ padding-right: 30px !important; }
+.pl20{ padding-left: 20px !important; }
+.pr20{ padding-right: 20px !important; }
+.pl50{ padding-left: 50px !important; }
+.pr50{ padding-right: 50px !important; }
+
+.p0, .np {
+  padding: 0 !important;
+}
+
+.width-auto {
+  width: auto !important;
+}
+
+.width-100p {
+  width: 100% !important;
+}
+
+@include responsivize(".width-100p") {
+  width: 100% !important;
+}
+
+
+@include responsivize(".width-75p") {
+  width: 75% !important;
+}
+
+
+@include responsivize(".width-50p") {
+  width: 50% !important;
+}
+
+
+@include responsivize(".width-33p") {
+  width: 33.3333% !important;
+}
+
+
+@include responsivize(".width-25p") {
+  width: 25% !important;
+}
+
+
+.bold {
+  font-weight: bold !important;
+}
+
+.outline0 {
+  outline: 0 !important;
+}
+
+.no-border {
+  border: 0 !important;
+}
+
+.display-inline-block {
+  display: inline-block !important;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+.error{color: #a94442; }
+
+.uppercase{text-transform: uppercase; }
+@include responsivize(".width-100p") { width: 100% !important; }
+@include responsivize(".width-75p") { width: 75% !important; }
+@include responsivize(".width-50p") { width: 50% !important; }
+@include responsivize(".width-33p") { width: 33.3333% !important; }
+@include responsivize(".width-25p") { width: 25% !important; }
+
+.outline0 {
+  outline: 0 !important;
+}
+
+.uppercase{ text-transform: uppercase !important; }
+
+// Z index
+.z-index-1{ z-index: 1 !important; }
+.z-index-2{ z-index: 2 !important; }
+.z-index-3{ z-index: 3 !important; }
+.z-index-4{ z-index: 4 !important; }
+
+
+// Flexbox widths (for home cms modules)
+
+.flex-width-100p{ flex-basis: 100%; }
+.flex-width-75p{ flex-basis: 75%; }
+.flex-width-66p{ flex-basis: 66.66666%; }
+.flex-width-50p{ flex-basis: 50%; }
+.flex-width-33p{ flex-basis: 33.33333%; &.nested-fields {flex-basis: 32.33333%; margin-right: 1%;} }
+.flex-width-25p{ flex-basis: 25%; }
+
+.flex-width-25p.nested-fields {
+  flex-basis: 24%;
+  margin-right: 1%;
+}
+
+[class^="flex-width-"], [class*="flex-width-"]{
+  @media #{$xs-screen}{
+    flex-basis: 100%;
+  }
+}
+.display-block{ display: block !important; }
+
+.full-width{ width: 100% !important; }
+
+.text-center{ text-align: center!important; }
+
+.margin-0-auto{ margin: 0 auto!important; }
+
+.float-left{
+  float: left;
+}
+.float-right{
+  float: right;
+}
+
+.light-text{
+  font-weight: 300;
+}
+
+.font-size-9{
+  font-size: 9px!important;
+}

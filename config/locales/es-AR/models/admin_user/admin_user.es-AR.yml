@@ -1,0 +1,16 @@
+es-AR:
+  activerecord:
+    attributes:
+      admin_user:
+        created_at: Fecha de creación
+        updated_at: Ultima actualización
+        telephone: Teléfono o Celular
+        first_name: Nombre
+        last_name: Apellido
+        email: Email
+        password: Contraseña
+        remember_me: Recordarme
+    models:
+      admin_user:
+        one: Administrador
+        other: Administradores

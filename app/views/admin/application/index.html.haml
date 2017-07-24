@@ -1,0 +1,21 @@
+= render 'header', page: page, show_buttons: true
+
+- if search
+  .row.search-form-container
+    .col-xs-12
+      = render 'search_form', search: search
+
+- if resources.present?
+  .row
+    .col-xs-12
+      = render "mass_assignment_dropdown"
+      
+  .row
+    .col-xs-12
+      = render "collection_with_mass_assignment_form", collection_presenter: page, resources: resources
+      = paginate resources
+- else
+  .row
+    .col-xs-12
+      = render 'items_not_found' 
+

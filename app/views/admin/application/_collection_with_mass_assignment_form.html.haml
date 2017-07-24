@@ -1,0 +1,6 @@
+= form_tag Rails.application.routes.url_helpers.send("admin_#{controller_name}_mass_assignment_path"), class: "js-mass-assignment-form" do 
+  %input{ type: :hidden, class: "js-action", name: "method"}
+  %input{ type: :hidden, name: "search", value: search_attributes.to_json}    
+
+  = render "collection", collection_presenter: collection_presenter, resources: resources
+= render "mass_assignment_modals"

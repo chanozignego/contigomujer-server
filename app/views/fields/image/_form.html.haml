@@ -1,0 +1,9 @@
+= f.label field.attribute
+- image = f.object.send(field.attribute)
+- if image.present?
+  %br
+  = image_tag field.data.try(:thumb) || field.data
+  %br
+  %br
+= f.file_field field.attribute
+%br

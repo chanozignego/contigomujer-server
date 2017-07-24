@@ -1,0 +1,27 @@
+-new_entity = local_assigns.has_key?(:new_entity) ? new_entity : true
+
+= simple_form_for([Administrate::NAMESPACE, page.resource], html: { class: "form" }) do |f|
+  .admin-common-panel
+    .row.admin-common-panel__header
+      .col-xs-12
+        %h5
+          = t("administrate.details")
+    
+    .row.admin-common-panel__content
+      .col-xs-12                 
+        .form-inputs
+          - page.attributes.each do |attribute|
+            %div{:class => "form-field form-field--#{attribute.html_class}"}
+              = render_field attribute, f: f
+
+  .mt20
+    = button_tag( type: "submit", class: "btn btn-primary") do
+      %span
+        = submit_entity_label(f.object) 
+      %i.fa.fa-plus.ml5
+
+    -# @todo : hacer link_to lista de la entidad
+    = link_to :back, class: "btn btn-danger ml10" do
+      %span
+        = I18n.t("administrate.actions.cancel")
+      %i.fa.fa-close.ml5

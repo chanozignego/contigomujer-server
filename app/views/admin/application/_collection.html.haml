@@ -1,0 +1,26 @@
+%table.table.table-striped.table-bordered.table-hover.js-resource-table.mt20
+  %thead
+    %tr
+      -if current_dashboard::ALLOW_MASS_ASSIGNMENT
+        %th{class: "cell-label text-center"}
+          %input{type: :checkbox, name: "check_all", class: "js-mass-assignment-check-all"}        
+      - collection_presenter.attribute_types.each do |attr_name, attr_type|
+        %th{:class => "cell-label table-head-cell cell-label--#{attr_type.html_class} cell-label--#{collection_presenter.ordered_html_class(attr_name)}"}
+          -if current_dashboard.try(:model).try(:column_names).try(:include?, attr_name.to_s)
+            = link_to sort_link([{field: attr_name}]) do
+              = collection_presenter.resource_name.camelize.constantize.human_attribute_name(attr_name)
+              %i{class: sort_direction_class(field: attr_name)}
+          -else
+            = collection_presenter.resource_name.camelize.constantize.human_attribute_name(attr_name)
+      %th{:colspan => "2"}
+  %tbody
+    - resources.each do |resource|
+      %tr.table__row{"data-url" => "#{polymorphic_path([Administrate::NAMESPACE, resource])}", :role => "link", :tabindex => "0"}
+        -if current_dashboard::ALLOW_MASS_ASSIGNMENT
+          %td{class: "cell-data text-center cell-data__checkbox-column"}      
+            %input{type: :checkbox, name: "model_ids[]", value: resource.id, class: "js-mass-assignment-check"}
+        - collection_presenter.attributes_for(resource).each do |attribute|
+          %td{:class => "cell-data cell-data--#{attribute.html_class}"}
+            = render_field attribute
+        %td.table__actions-section
+          = render 'actions', resource: resource

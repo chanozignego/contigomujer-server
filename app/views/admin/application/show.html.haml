@@ -1,0 +1,17 @@
+= render 'header', page: page, show_buttons: true
+
+.row
+  .col-xs-12
+    .admin-common-panel
+      .row.admin-common-panel__header
+        .col-xs-12
+          %h5
+            = t("administrate.details")
+      .row.admin-common-panel__content
+        .col-xs-12
+          - page.attributes.each do |attribute|
+            .row.admin-detail-row
+              .col-xs-3
+                %span.bold= "#{object_class(page.resource).human_attribute_name(attribute.name)}:"
+              .col-xs-9
+                %span{:class => "attribute-data attribute-data--#{attribute.html_class}"}= render_field attribute 

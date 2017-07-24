@@ -1,0 +1,4 @@
+- if field.data.present? 
+  = I18n.t("#{field.attribute.to_s.pluralize}.#{field.data}")
+- else
+  = "-"

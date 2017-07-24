@@ -1,0 +1,3 @@
+= f.label field.attribute_key, field.attribute
+= f.select(field.attribute_key, nil, {}, multiple: true) do
+  = options_for_select(field.associated_resource_options, field.selected_options)

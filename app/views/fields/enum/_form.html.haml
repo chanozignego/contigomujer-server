@@ -1,0 +1,9 @@
+= f.input field.attribute, 
+    collection: f.object.class.send(field.attribute.to_s.pluralize).try(:keys),
+    as: :select,
+    placeholder: I18n.t("administrate.select_option",
+      option: f.object.class.human_attribute_name(field.attribute)),
+    selected: f.object.try(field.attribute),
+    include_blank: true,
+    input_html: { class: "form-control js-select2" },
+    label_method: -> (ft) { I18n.t("#{field.attribute.to_s.pluralize}.#{ft.to_sym}") }

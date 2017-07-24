@@ -1,0 +1,15 @@
+-show_buttons = local_assigns.has_key?(:show_buttons) ? show_buttons : false
+
+%header.row.admin-header__container
+  .col-xs-12.admin-header
+    .center-vertical
+      -if current_dashboard.model.present?
+        %h5.admin-header__breadcrumb 
+          = link_to current_dashboard.model.model_name.human(count: :many), instance_eval("admin_#{current_dashboard.model.model_name.collection}_path")
+          -if page.respond_to?(:resource)
+            >
+            = breadcrumb_title(current_dashboard.model)
+      %h1.admin-header__title
+        = display_resource_name(page.resource_name)
+    .admin-header-buttons.center-vertical
+      = render "header_buttons", page: page if show_buttons

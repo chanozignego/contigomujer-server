@@ -1,0 +1,7 @@
+- if field.data
+  = link_to(                             |
+      field.data.try(:to_s),             |
+      [namespace, field.data],           |
+    )                                    |
+- else
+  = "-"

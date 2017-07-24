@@ -1,0 +1,15 @@
+es-AR:
+  batch_actions:
+    started_worker: Se ha inicializado la tarea solicitada. En breve verá los cambios aplicados
+    another_worker_still_running: Hay otro worker corriendo actualmente.
+  mass_assignment:
+    label: Acciones en masa
+    actions:
+      destroy: Eliminar
+      mark_as_sale: Marcar en oferta
+      unmark_as_sale: Desmarcar en oferta
+      mark_as_new: Marcar como nuevo
+      unmark_as_new: Desmarcar como nuevo
+    flash_messages:
+      success: Acción en masa realizada satisfactoriamente
+      background_success: Se comenzó la acción en masa para actualizar los registros solicitados. En unos pocos minutos se reflejarán los cambios. 
