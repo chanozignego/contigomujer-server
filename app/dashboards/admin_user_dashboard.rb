@@ -13,6 +13,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
     phone: Field::String,
     superadmin: Field::Boolean,
     email: Field::String,
+    town: Field::BelongsTo,
     password: Field::Password
   }
 
@@ -26,6 +27,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
     :name,
     :phone,
     :email,
+    :town,
     :superadmin
   ]
 
@@ -40,6 +42,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
     :name,
     :phone,
     :email,
+    :town,
     :superadmin
   ]
 

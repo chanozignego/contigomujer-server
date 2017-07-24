@@ -8,6 +8,8 @@ es-AR:
         name: Nombre
         last_name: Apellido
         email: Email
+        town: Municipio
+        town_id: Municipio
         password: Contraseña
         superadmin: Superadmin
         password_confirmation: Contraseña
