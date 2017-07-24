@@ -6,7 +6,8 @@
           %i.fa.fa-dashboard.fa-fw
           Dashboard
 
-      - DashboardManifest::DASHBOARDS.drop(1).each do |resource|
+      //- DashboardManifest::DASHBOARDS.drop(1).each do |resource|
+      - DashboardManifest::DASHBOARDS.each do |resource|
         %li
           = link_to [:admin, resource], class: "sidebar__link sidebar__link--#{nav_link_state(resource)}" do
             %i.fa.fa-table.fa-fw

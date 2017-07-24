@@ -1,0 +1,2 @@
+class TownPolicy < ApplicationPolicy
+end

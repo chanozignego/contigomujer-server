@@ -1,0 +1,11 @@
+es-AR:
+  activerecord:
+    attributes:
+      town:
+        created_at: Fecha de creación
+        updated_at: Ultima actualización
+        name: Nombre
+    models:
+      town:
+        one: Municipio
+        other: Municipios
