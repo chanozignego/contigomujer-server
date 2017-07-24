@@ -15,6 +15,10 @@
         %i.fa.fa-caret-down
       %ul.dropdown-menu.dropdown-user
         %li
+          %a{:href => edit_admin_admin_user_path(current_admin_user.id)}
+            %i.fa.fa-user.fa-fw
+            Perfil
+        %li
           %a{:href => admin_admin_user_change_password_path(current_admin_user.id)}
             %i.fa.fa-gear.fa-fw
             Contraseña
