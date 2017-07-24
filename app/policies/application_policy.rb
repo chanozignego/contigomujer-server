@@ -38,6 +38,10 @@ class ApplicationPolicy
     Pundit.policy_scope!(user, record.class)
   end
 
+  def self.show_in_sidebar? user
+    user.present?
+  end
+
   class Scope
     attr_reader :user, :scope
 
@@ -47,7 +51,15 @@ class ApplicationPolicy
     end
 
     def resolve
-      scope
+      if user.superadmin?
+        scope.all
+      else
+        resolve_for_non_admins()
+      end
+    end
+
+    def resolve_for_non_admins
+      scope.all
     end
   end
 end

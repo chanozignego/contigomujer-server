@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class AssistanceDashboard < Administrate::BaseDashboard
+class AssistanceDashboard < ApplicationDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -27,6 +27,7 @@ class AssistanceDashboard < Administrate::BaseDashboard
     :state,
     :user,
     :town,
+    :address,
     :admin_user
   ]
 

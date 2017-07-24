@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class TownDashboard < Administrate::BaseDashboard
+class TownDashboard < ApplicationDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -39,4 +39,5 @@ class TownDashboard < Administrate::BaseDashboard
   # def display_resource(admin_user)
   #   "AdminUser ##{admin_user.id}"
   # end
+
 end

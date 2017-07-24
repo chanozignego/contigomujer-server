@@ -8,7 +8,8 @@
 
       //- DashboardManifest::DASHBOARDS.drop(1).each do |resource|
       - DashboardManifest::DASHBOARDS.each do |resource|
-        %li
-          = link_to [:admin, resource], class: "sidebar__link sidebar__link--#{nav_link_state(resource)}" do
-            %i.fa.fa-table.fa-fw
-            = display_resource_name(resource)
+        - if policy_class(resource).show_in_sidebar?(current_admin_user)
+          %li
+            = link_to [:admin, resource], class: "sidebar__link sidebar__link--#{nav_link_state(resource)}" do
+              %i.fa.fa-table.fa-fw
+              = display_resource_name(resource)

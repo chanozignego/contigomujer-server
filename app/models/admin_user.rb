@@ -5,6 +5,10 @@ class AdminUser < ActiveRecord::Base
 
   belongs_to :town
 
+  def superadmin?
+    superadmin
+  end
+
   def full_name
     name
   end

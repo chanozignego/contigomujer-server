@@ -20,6 +20,14 @@ module Administrate
         )
     end
 
+    def dashboard_class(resource_name)
+      "#{resource_name.to_s.singularize}_dashboard".classify.safe_constantize
+    end
+
+    def policy_class(resource_name)
+      "#{resource_name.to_s.singularize}_policy".classify.safe_constantize
+    end
+
     def active_property resource_type, property_type
       # return "active" if resource.actable_type == "Choice" && property_type.to_s == "Dropdown"
       # return resource.actable_type == property_type ? "active" : ""      
