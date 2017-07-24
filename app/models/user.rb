@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
 
   belongs_to :town
 
+  def to_s
+    name
+  end
+
 end

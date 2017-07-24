@@ -8,4 +8,8 @@ class AdminUser < ActiveRecord::Base
   def full_name
     name
   end
+
+  def to_s
+    name
+  end
 end

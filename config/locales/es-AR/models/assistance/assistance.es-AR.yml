@@ -1,0 +1,22 @@
+es-AR:
+  states: 
+    pending: Pendiente
+    accepted: Aceptada
+    finalized: Finalizada
+    canceled: Cancelada
+  activerecord:
+    attributes:
+      assistance:
+        state: Estado
+        user: Usuario
+        user_id: Usuario
+        town: Municipio
+        town_id: Municipio
+        admin_user: Administrador
+        admin_user_id: Administrador
+        address: Dirección
+        dpto: Dpto
+    models:
+      assistance:
+        one: Asistencia
+        other: Asistencias

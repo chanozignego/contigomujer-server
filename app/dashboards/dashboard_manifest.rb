@@ -14,7 +14,8 @@ class DashboardManifest
     :towns,
     :infos,
     :laws,
-    :users
+    :users,
+    :assistances
   ]
 
   # `ROOT_DASHBOARD`

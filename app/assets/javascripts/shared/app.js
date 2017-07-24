@@ -11,7 +11,7 @@
           var $element = $(element);
           var placeholder = $element.attr("placeholder") || $element.data("placeholder") || I18n.t("select2.default_simple_placeholder");
           var width = $element.data("width") ? $element.data("width") : undefined;
-          var allowClear = $element.data("allowClear") ? $element.data("allowClear") : false;
+          var allowClear = $element.data("allowClear") ? $element.data("allowClear") : true;
           $element.select2({placeholder: placeholder, width: width, allowClear: allowClear, locale: I18n.locale});
       });
   };
