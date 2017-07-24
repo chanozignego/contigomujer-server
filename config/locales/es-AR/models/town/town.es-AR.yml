@@ -5,6 +5,8 @@ es-AR:
         created_at: Fecha de creación
         updated_at: Ultima actualización
         name: Nombre
+        name_cont: Nombre
+        id_eq: Id
     models:
       town:
         one: Municipio

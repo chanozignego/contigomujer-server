@@ -6,6 +6,8 @@ es-AR:
         updated_at: Ultima actualización
         title: Título
         file: Archivo
+        title_cont: Título
+        id_eq: Id
     models:
       law:
         one: Ley

@@ -16,6 +16,9 @@ es-AR:
         admin_user_id: Administrador
         address: Dirección
         dpto: Dpto
+        name_cont: Nombre
+        town_id_eq: Municipio
+        state_eq: Estado
     models:
       assistance:
         one: Asistencia

@@ -49,6 +49,25 @@ class UserDashboard < ApplicationDashboard
     :town
   ]
 
+  SEARCHABLE_ATTRIBUTES = [
+    #[:id_eq, {input_html: {type: :number, min: 0}}],
+    [:name_cont],
+    [:email_cont],
+    [:town_id_eq, {as: :select, 
+              collection: Town.all,
+              include_blank: true,
+              input_html: { class: "form-control js-select2" },
+              value_method: :id,
+              label_method: -> (t) { 
+                  t.try(:to_s)
+                }
+              }]
+  ]
+
+  def self.search_path
+    Rails.application.routes.url_helpers.admin_users_path
+  end
+
   # Overwrite this method to customize how admin users are displayed
   # across all pages of the admin dashboard.
   #

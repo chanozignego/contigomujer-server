@@ -1,0 +1,34 @@
+- if current_dashboard.const_defined?(:SEARCHABLE_ATTRIBUTES) && current_dashboard::SEARCHABLE_ATTRIBUTES.present? 
+  = simple_form_for(search, url: current_dashboard.search_path,
+    html: {class: 'simple_form admin-common-panel mb30'}, method: :get) do |f|
+    .row.admin-common-panel__header
+      .col-xs-12
+        %h5
+          = t("administrate.filters")
+    - current_dashboard::SEARCHABLE_ATTRIBUTES.each_slice(3) do |methods|
+      .row.admin-common-panel__content
+        - methods.each do |field, options = {}|
+          .col-xs-4
+            = f.input field, { label: search.klazz.human_attribute_name(field),
+                required: false, input_html: { class: 'form-control',
+                placeholder: search.klazz.human_attribute_name(field) } }.deep_merge(options)
+    .row.admin-common-panel__content
+      .col-xs-4.col-xs-offset-4
+        = link_to t("administrate.actions.clear_form"), "#",
+          class: "js-reset-form btn btn-default full-width"
+      .col-xs-4
+        = button_tag( type: "submit",
+          class:"btn btn-large btn-primary width-100p") do
+          %span
+            = t("administrate.actions.search")
+          %i.fa.fa-search.ml5
+
+= content_for(:javascript) do
+  :javascript
+    $(document).ready(function(){
+      $('.js-reset-form').on("click", function(e){
+        e.preventDefault();
+        window.location = window.location.pathname;
+        return false;
+      });
+    });

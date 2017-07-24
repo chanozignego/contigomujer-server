@@ -8,6 +8,8 @@ es-AR:
         description: Descripción 
         town: Municipio
         town_id: Municipio
+        title_cont: Título
+        id_eq: Id
     models:
       info:
         one: Información

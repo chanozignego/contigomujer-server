@@ -13,6 +13,9 @@ es-AR:
         address: Dirección
         town: Municipio
         town_id: Municipio
+        town_id_eq: Municipio
+        name_cont: Nombre
+        email_cont: Email
     models:
       user:
         one: Usuario

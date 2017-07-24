@@ -35,6 +35,15 @@ class LawDashboard < ApplicationDashboard
     :file
   ]
 
+  SEARCHABLE_ATTRIBUTES = [
+    [:id_eq, {input_html: {type: :number, min: 0}}],
+    [:title_cont],
+  ]
+
+  def self.search_path
+    Rails.application.routes.url_helpers.admin_laws_path
+  end
+
   # Overwrite this method to customize how admin users are displayed
   # across all pages of the admin dashboard.
   #
