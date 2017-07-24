@@ -1,0 +1,14 @@
+es-AR:
+  activerecord:
+    attributes:
+      info:
+        created_at: Fecha de creación
+        updated_at: Ultima actualización
+        title: Título
+        description: Descripción 
+        town: Municipio
+        town_id: Municipio
+    models:
+      info:
+        one: Información
+        other: Información
