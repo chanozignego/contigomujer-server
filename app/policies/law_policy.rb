@@ -1,0 +1,2 @@
+class LawPolicy < ApplicationPolicy
+end

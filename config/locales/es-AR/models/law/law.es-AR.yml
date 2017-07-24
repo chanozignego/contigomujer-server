@@ -1,0 +1,12 @@
+es-AR:
+  activerecord:
+    attributes:
+      law:
+        created_at: Fecha de creación
+        updated_at: Ultima actualización
+        title: Título
+        file: Archivo
+    models:
+      law:
+        one: Ley
+        other: Leyes

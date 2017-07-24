@@ -60,6 +60,11 @@ gem "font-awesome-rails"
 #Tree
 gem 'ancestry'
 
+# File uploading and image processing
+gem "mini_magick"
+gem "carrierwave"
+gem "carrierwave-base64"
+
 group :development, :test do
   #Manage ENV variables
   gem 'dotenv-rails'
