@@ -4,11 +4,13 @@ es-AR:
       admin_user:
         created_at: Fecha de creación
         updated_at: Ultima actualización
-        telephone: Teléfono o Celular
-        first_name: Nombre
+        phone: Teléfono
+        name: Nombre
         last_name: Apellido
         email: Email
         password: Contraseña
+        superadmin: Superadmin
+        password_confirmation: Contraseña
         remember_me: Recordarme
     models:
       admin_user:

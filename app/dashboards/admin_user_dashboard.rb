@@ -13,15 +13,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
     phone: Field::String,
     superadmin: Field::Boolean,
     email: Field::String,
-    encrypted_password: Field::String,
-    reset_password_token: Field::String,
-    reset_password_sent_at: Field::DateTime,
-    remember_created_at: Field::DateTime,
-    sign_in_count: Field::Number,
-    current_sign_in_at: Field::DateTime,
-    last_sign_in_at: Field::DateTime,
-    current_sign_in_ip: Field::String.with_options(searchable: false),
-    last_sign_in_ip: Field::String.with_options(searchable: false),
+    password: Field::Password
   }
 
   # COLLECTION_ATTRIBUTES
@@ -33,7 +25,8 @@ class AdminUserDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :phone,
-    :superadmin,
+    :email,
+    :superadmin
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -46,17 +39,8 @@ class AdminUserDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :phone,
-    :superadmin,
     :email,
-    :encrypted_password,
-    :reset_password_token,
-    :reset_password_sent_at,
-    :remember_created_at,
-    :sign_in_count,
-    :current_sign_in_at,
-    :last_sign_in_at,
-    :current_sign_in_ip,
-    :last_sign_in_ip,
+    :superadmin
   ]
 
   # Overwrite this method to customize how admin users are displayed

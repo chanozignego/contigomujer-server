@@ -1,1 +1,7 @@
-= field.to_s
+.text-center
+  - if field.data
+    %span.label.label-success 
+      = I18n.t("administrate.fields.boolean.true_value")
+  - else
+    %span.label.label-default 
+      = I18n.t("administrate.fields.boolean.false_value")

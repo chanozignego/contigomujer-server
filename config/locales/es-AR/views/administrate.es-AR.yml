@@ -28,3 +28,7 @@ es-AR:
       search: Buscar
       cancel: Cancelar
       change_password: Cambiar contraseña
+    fields:
+      boolean: 
+        true_value: "Si"
+        false_value: "No"
