@@ -19,6 +19,16 @@ module ContigomujerServer
     config.autoload_paths += %W(#{config.root}/workers)
     config.autoload_paths += %W(#{config.root}/classes)
 
+    config.middleware.use Rack::Cors do
+      allow do
+        origins '*'
+        resource '*',
+          :headers => :any,
+          :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+          :methods => [:get, :post, :options, :delete, :put]
+      end
+    end
+
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 

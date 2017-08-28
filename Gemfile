@@ -17,6 +17,13 @@ gem 'active_model_serializers'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# RailsAPI
+gem 'rails-api'
+gem 'rack-cors', :require => 'rack/cors'
+
+# ApiPie por API documentation
+gem 'apipie-rails'
+
 gem 'kaminari'                      # Pagination
 gem 'searchlight'
 
@@ -28,6 +35,7 @@ gem 'thin'                          # Server
 gem "cocoon"
 
 gem 'devise' #Login
+gem 'devise_token_auth'
 gem 'pundit'
 gem 'administrate', '0.1.2'
 
