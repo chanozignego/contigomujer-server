@@ -1,7 +1,7 @@
 module Api
   module V1
     module Auth
-      module Users
+      module Auxiliaries
         class TokenValidationsController < Api::Auth::TokenValidationsController
 
           def validate_token

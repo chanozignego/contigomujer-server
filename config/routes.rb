@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     root controller: DashboardManifest::ROOT_DASHBOARD, action: :index
   end
 
-  ## API ##
+  # API ##
   mount_devise_token_auth_for 'User', at: "/api/v1/auth/users", controllers: {
     passwords:          'api/v1/auth/users/passwords',
     registrations:      'api/v1/auth/users/registrations',
@@ -36,10 +36,13 @@ Rails.application.routes.draw do
     token_validations:  'api/v1/auth/users/token_validations'
   }
 
-  #Sidekiq Web
-  authenticate :admin_user, lambda { |u| u.present? } do
-    mount Sidekiq::Web => '/sidekiq'
-  end
+  # API ##
+  mount_devise_token_auth_for 'Auxiliary', at: "/api/v1/auth/auxiliaries", controllers: {
+    passwords:          'api/v1/auth/auxiliaries/passwords',
+    registrations:      'api/v1/auth/auxiliaries/registrations',
+    sessions:           'api/v1/auth/auxiliaries/sessions',
+    token_validations:  'api/v1/auth/auxiliaries/token_validations'
+  }
 
   #root to: "home#index"
 
@@ -49,8 +52,24 @@ Rails.application.routes.draw do
 
       resources :laws, only: [:index, :show, :create, :update]
 
+      resources :infos, only: [:index, :show, :create, :update]
+
+      resources :towns, only: [:index]
+
+      resources :assistances, only: [:index, :show, :create, :update] do
+        member do
+          put :cancel
+        end
+      end
+
     end
 
   end
+
+  #Sidekiq Web
+  authenticate :admin_user, lambda { |u| u.present? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
 
 end

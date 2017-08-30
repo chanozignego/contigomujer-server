@@ -8,6 +8,12 @@ module Api
         render json: e.message, status: 400
       end
 
+      def create
+        params.delete(:registration)
+        params[:address] = "#{params[:street]} #{params[:number]}, #{params[:apartment]}"
+        super
+      end
+
       protected
 
         def render_create_success

@@ -122,10 +122,10 @@ GEM
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     debug_inspector (0.0.3)
-    devise (4.3.0)
+    devise (4.2.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 5.2)
+      railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
     devise_token_auth (0.1.42)
@@ -419,7 +419,7 @@ DEPENDENCIES
   carrierwave-base64
   cocoon
   database_cleaner (~> 1.5)
-  devise
+  devise (~> 4.2.0)
   devise_token_auth
   dotenv-rails
   draper

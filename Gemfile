@@ -34,7 +34,7 @@ gem 'thin'                          # Server
 
 gem "cocoon"
 
-gem 'devise' #Login
+gem 'devise', '~> 4.2.0' #Login
 gem 'devise_token_auth'
 gem 'pundit'
 gem 'administrate', '0.1.2'
