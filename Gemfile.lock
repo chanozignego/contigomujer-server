@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:chanozignego/stackmint.git
+  remote: https://github.com/chanozignego/stackmint.git
   revision: 496f5d57961d44aea4091909c8aafbefb09105ec
   specs:
     stackmint (0.0.2)

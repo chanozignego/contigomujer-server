@@ -107,7 +107,8 @@ end
 
 group :production do
   gem 'foreman'
-  gem 'stackmint', git: "git@github.com:chanozignego/stackmint.git"
+  #gem 'stackmint', git: "git@github.com:chanozignego/stackmint.git"
+  gem 'stackmint', git: "https://github.com/chanozignego/stackmint.git"
   gem 'puma'
   gem 'recipient_interceptor' #for staging environment - SET ENV['STAGING'] for to use
 end
