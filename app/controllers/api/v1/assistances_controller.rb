@@ -8,7 +8,8 @@ module Api
         assistance = Assistance.find(params[:id])
         assistance.state = :canceled
         if assistance.save
-          # TODO: notify adminuser
+          auxiliary = Auxiliary.where(admin_user: assistance.admin_user).first
+          NotificationManager.notificate_assistance_canceled(assistance, auxiliary)
           render json: assistance, status: :ok
         else
           render json: {message: "could not update assistance", resource: assistance}, 
@@ -30,7 +31,16 @@ module Api
         end
       end
 
+      private 
 
+        def render_create_success resource
+          auxiliaries = Auxiliary.where(town: resource.town)
+          auxiliaries.each do |aux|
+            NotificationManager.notificate_request_assistance(resource, aux)
+          end
+
+          super
+        end
 
     end
   end

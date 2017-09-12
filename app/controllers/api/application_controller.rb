@@ -31,10 +31,9 @@ module Api
     def create
       resource = object_class.new(object_params)
       if resource.save
-        render json: resource, status: :ok
+        render_create_success(resource)
       else
-        render json: {message: "could not create resource", resource: resource}, 
-                      status: :unprocessable_entity
+        render_create_error(resource)
       end
     end
 
@@ -49,6 +48,16 @@ module Api
     end
 
     private
+
+      def render_create_success resource
+        render json: resource, status: :ok
+      end
+
+      def render_create_error resource
+        render json: {message: "could not create resource", resource: resource}, 
+                      status: :unprocessable_entity
+      end
+
       def scoped_collection
         klass = object_class
         klass.all
