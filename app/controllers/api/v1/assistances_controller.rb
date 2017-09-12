@@ -16,6 +16,20 @@ module Api
         end
       end
 
+      def accept
+        assistance = Assistance.find(params[:id])
+        assistance.state = :accepted
+        assistance.minutes = params[:minutes]
+        assistance.admin_user = Auxiliary.find(params[:auxiliary_id]).admin_user
+        if assistance.save
+          # TODO: notify adminuser
+          render json: assistance, status: :ok
+        else
+          render json: {message: "could not update assistance", resource: assistance}, 
+                        status: :unprocessable_entity
+        end
+      end
+
 
 
     end

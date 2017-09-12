@@ -95,7 +95,8 @@ task :production do
 
   namespace :foreman do
     set(:foreman_concurrency) { "puma=1,sidekiq=1,redis=1" }
-    set(:foreman_export_command) { "./bin/foreman export #{foreman_export_format} #{foreman_tmp_location} --procfile #{procfile} --app #{application} --user #{application_user} --log #{deploy_to}/log #{foreman_template_option} --concurrency #{foreman_concurrency}" }
+    #set(:foreman_export_command) { "./bin/foreman export #{foreman_export_format} #{foreman_tmp_location} --procfile #{procfile} --app #{application} --user #{application_user} --log #{deploy_to}/log #{foreman_template_option} --concurrency #{foreman_concurrency}" }
+    set(:foreman_export_command) { "./bin/foreman export #{foreman_export_format} #{foreman_tmp_location} --procfile #{procfile} --app #{application} --user #{application_user} --log /home/contigomujer/app/log #{foreman_template_option} -c #{foreman_concurrency}" }
 
     task :restart, roles: :app do
       foreman.export

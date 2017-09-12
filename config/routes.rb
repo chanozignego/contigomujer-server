@@ -59,6 +59,7 @@ Rails.application.routes.draw do
       resources :assistances, only: [:index, :show, :create, :update] do
         member do
           put :cancel
+          put :accept
         end
       end
 

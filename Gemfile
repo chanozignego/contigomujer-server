@@ -106,7 +106,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'foreman'
+  gem 'foreman', '0.63.0'
   #gem 'stackmint', git: "git@github.com:chanozignego/stackmint.git"
   gem 'stackmint', git: "https://github.com/chanozignego/stackmint.git"
   gem 'puma'
