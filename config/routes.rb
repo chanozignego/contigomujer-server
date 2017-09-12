@@ -63,6 +63,25 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :messages, only: [:show] do
+        member do
+          put :read
+          put :view
+        end
+      end
+
+      resources :users, only: [:show, :create, :update] do
+        member do
+          get :messages
+        end
+      end
+
+      resources :auxiliaries, only: [:show, :update] do
+        member do
+          get :messages
+        end
+      end
+
     end
 
   end

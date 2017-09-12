@@ -18,6 +18,7 @@ module ContigomujerServer
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += %W(#{config.root}/workers)
     config.autoload_paths += %W(#{config.root}/classes)
+    config.autoload_paths += %W(#{config.root}/managers)
 
     config.middleware.use Rack::Cors do
       allow do
