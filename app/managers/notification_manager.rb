@@ -2,7 +2,7 @@ class NotificationManager
 
   # assistance required by user (for auxiliaries) --> request_assistance
   def self.notificate_request_assistance assistance, auxiliary
-    token = offer.carrier.try(:device_token)
+    token = auxiliary.try(:device_token)
     data = {}
     NotificationManager.create_message(:request_assistance, :auxiliary, auxiliary.try(:id), data)
     
@@ -24,7 +24,7 @@ class NotificationManager
   # TODO: later!!!
   # answer question by user (for users) --> answer_question
   def self.notificate_answer_question question, user
-    token = offer.carrier.try(:device_token)
+    token = auxiliary.try(:device_token)
     data = {}
 
     NotificationManager.create_message(:answer_question, :user, user.try(:id), data)
