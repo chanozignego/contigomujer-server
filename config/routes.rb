@@ -73,6 +73,7 @@ Rails.application.routes.draw do
       resources :users, only: [:show, :create, :update] do
         member do
           get :messages
+          put :mark_messages_as_viewed
         end
       end
 

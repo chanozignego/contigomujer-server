@@ -19,6 +19,19 @@ module Api
         end
       end
 
+      def mark_messages_as_viewed
+        if User.find(params[:id]).present?
+          messages = Message.user.where(receiver_id: params[:id], viewed: false)
+          messages.each do |mess| 
+            mess.viewed = true
+            mess.save!
+          end
+          render json: true, status: :ok
+        else
+          render json: {message: "could not find user"}, status: :unprocessable_entity
+        end
+      end
+
     end
   end
 end
