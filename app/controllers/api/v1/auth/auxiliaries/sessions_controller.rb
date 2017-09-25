@@ -28,10 +28,15 @@ module Api
 
           protected
             def set_resource
-              @resource = current_member
+              @resource = current_auxiliary
               # if request.headers["id"].present?
               #   @resource = User.find(request.headers["id"])
               # end
+            end
+        
+            def render_create_success
+              #update_device_token
+              render json: @resource, status: :ok
             end
 
             def render_create_error

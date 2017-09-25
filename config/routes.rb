@@ -80,6 +80,7 @@ Rails.application.routes.draw do
       resources :auxiliaries, only: [:show, :update] do
         member do
           get :messages
+          put :mark_messages_as_viewed
         end
       end
 
