@@ -12,7 +12,7 @@ module Api
       formats ['json']
       def messages
         if Auxiliary.find(params[:id]).present?
-          messages = Message.user.where(receiver_id: params[:id]).order(id: :desc)
+          messages = Message.auxiliary.where(receiver_id: params[:id]).order(id: :desc)
           render json: messages, status: :ok
         else
           render json: {message: "could not find Auxiliary"}, status: :unprocessable_entity
@@ -21,14 +21,14 @@ module Api
 
       def mark_messages_as_viewed
         if Auxiliary.find(params[:id]).present?
-          messages = Message.user.where(receiver_id: params[:id], viewed: false)
+          messages = Message.auxiliary.where(receiver_id: params[:id], viewed: false)
           messages.each do |mess| 
             mess.viewed = true
             mess.save!
           end
           render json: true, status: :ok
         else
-          render json: {message: "could not find user"}, status: :unprocessable_entity
+          render json: {message: "could not find auxiliary"}, status: :unprocessable_entity
         end
       end
 
