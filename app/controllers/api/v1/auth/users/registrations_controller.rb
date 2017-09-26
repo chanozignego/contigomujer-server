@@ -31,55 +31,13 @@ module Api
           error :code => 422, :desc => "Unprocessable Entity"
           formats ['json']          
           def update
-            if (params[:picture].present? && params[:picture].is_a?(String) && params[:picture].start_with?("data:image/jpeg;base64"))
-              params[:picture], tempfile = ImageParserService.parse_image_data(params[:picture]) 
-            end
+            # if (params[:picture].present? && params[:picture].is_a?(String) && params[:picture].start_with?("data:image/jpeg;base64"))
+            #   params[:picture], tempfile = ImageParserService.parse_image_data(params[:picture]) 
+            # end
+            # super
+            # ImageParserService.clean_tempfile(tempfile)
             super
-            ImageParserService.clean_tempfile(tempfile)
           end
-
-          api :POST, '/v1/auth/users/sign_up_with_facebook', "Create user with facebook"
-          param :facebook_uid, String, required: true      
-          param :first_name, String, required: true      
-          param :last_name, String, required: true      
-          param :email, String, required: true      
-          param :picture, String, required: true  
-          error :code => 401, :desc => "Unauthorized"
-          error :code => 404, :desc => "Page Not Found"
-          error :code => 422, :desc => "Unprocessable Entity"
-          formats ['json']          
-          def create_with_facebook
-            @resource = User.where(facebook_uid: params[:facebook_uid]).first
-            unless @resource.present? 
-              password = SecureRandom.hex(8)
-              @resource = User.new(facebook_uid: params[:facebook_uid],
-                              first_name: params[:first_name],
-                              last_name: params[:last_name],
-                              email: params[:email],
-                              remote_picture_url: params[:picture],
-                              password: password,
-                              password_confirmation: password)
-            end
-
-            @client_id = SecureRandom.urlsafe_base64(nil, false)
-            @token     = SecureRandom.urlsafe_base64(nil, false)
-
-            @resource.tokens[@client_id] = {
-              token: BCrypt::Password.create(@token),
-              expiry: (Time.now + DeviseTokenAuth.token_lifespan).to_i
-            }
-
-
-            if @resource.save
-              new_auth_header = @resource.build_auth_header(@token, @client_id)
-              response.headers.merge!(new_auth_header)
-              render_create_success
-            else
-              logger.info "Resource errors: #{@resource.errors.try(:to_json)}"
-              render_create_error
-            end
-          end
-
 
           private
 
